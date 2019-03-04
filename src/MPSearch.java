@@ -28,14 +28,14 @@ public class MPSearch extends StringSearch {
         int n = text.length();
         int m = pattern.length();
         while (i < n) {
-            while (j >= 0 && text.charAt(i) != text.charAt(j)) {
+            while (j >= 0 && text.charAt(i) != pattern.charAt(j)) {
                 j = pi.get(j);
             }
             i++;
             j++;
             if (j == m) {
                 occurrences.add(i - j);
-                j = pi.get(j);
+                j = pi.get(m);
             }
         }
     }
