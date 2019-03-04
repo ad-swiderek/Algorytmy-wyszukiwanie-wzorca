@@ -21,5 +21,11 @@ public class Main {
         for (int p : kmps.getOccurrences()) {
             System.out.println(p);
         }
+
+        System.out.println();
+        BMSearch bms = new BMSearch("ababcababaaba", "abababbbbaababcababaabababac");
+        bms.init1();
+        bms.init2();
+        bms.printArrays();
     }
 }
