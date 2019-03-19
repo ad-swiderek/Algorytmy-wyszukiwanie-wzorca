@@ -1,9 +1,11 @@
 public class BMSearch extends StringSearch {
     private int[] f;
     private int[] s;
+    private int[] occ = new int[256];
 
     public BMSearch(String pattern, String text) {
         super(pattern, text);
+        BMInitocc();
     }
 
     public void init0() {
@@ -57,14 +59,35 @@ public class BMSearch extends StringSearch {
         for (int i = 0; i <= pattern.length(); i++) {
             System.out.print(s[i] + " ");
         }
+        System.out.println();
     }
 
-    void bmInitocc() {
+    public void BMInitocc() {
+        for (int i = 0; i < 256; i++) {
+            occ[i] = pattern.length() + 1;
+        }
 
+        for (int i = 0; i < pattern.length(); i++) {
+            occ[pattern.charAt(i)] = pattern.length() - i;
+        }
     }
 
     @Override
     public void search() {
+        int i = 0, j = 0;
+        int n = text.length();
+        int m = pattern.length();
+        while (i <= n - m) {
+            j = m - 1;
+            while (j >= 0 && text.charAt(i + j) == pattern.charAt(j))
+                j--;
+            if (j < 0) {
+                occurrences.add(i);
+                i += s[0];
+            } else {
+                i += Math.max(s[j + 1], j - occ[text.charAt(i + j)]);
+            }
 
+        }
     }
 }
