@@ -1,9 +1,9 @@
 public class SearchFactory {
     public StringSearch makeSearching(String searchName, String pattern, String text) {
         StringSearch newSearching = null;
-        if (searchName.equals("Naive")) {
+        if (searchName.equals("N")) {
             return new NaiveSearch(pattern, text);
-        } else if (searchName.equals("Sunday")) {
+        } else if (searchName.equals("S")) {
             return new SundaySearch(pattern, text);
         } else if (searchName.equals("MP")) {
             return new MPSearch(pattern, text);
