@@ -6,6 +6,9 @@ public class BMSearch extends StringSearch {
     public BMSearch(String pattern, String text) {
         super(pattern, text);
         BMInitocc();
+        init0();
+        init1();
+        init2();
     }
 
     public void init0() {
@@ -19,7 +22,7 @@ public class BMSearch extends StringSearch {
     }
 
     public void init1() {
-        init0();
+        //init0();
         int m = pattern.length();
         int i = m;
         int j = m + 1;

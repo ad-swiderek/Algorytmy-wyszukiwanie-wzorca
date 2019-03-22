@@ -1,5 +1,7 @@
+import java.io.IOException;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         NaiveSearch ns = new NaiveSearch("abcac", "abcabcacabababababcacba");
         ns.search();
@@ -37,8 +39,6 @@ public class Main {
         //BMSearch bms = new BMSearch("ababcababaaba", "abababbbbaababcababaabababac");
         BMSearch bms = new BMSearch("abcac", "abcabcacabababababcacba");
 
-        bms.init1();
-        bms.init2();
         bms.printArrays();
         bms.search();
 
@@ -46,5 +46,8 @@ public class Main {
         for (int s: bms.getOccurrences()){
             System.out.println(s);
         }
+
+        FileProcessing fp = new FileProcessing();
+        fp.saveRandomString();
     }
 }
