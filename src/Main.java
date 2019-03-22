@@ -3,7 +3,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        NaiveSearch ns = new NaiveSearch("abcac", "abcabcacabababababcacba");
+       /* NaiveSearch ns = new NaiveSearch("abcac", "abcabcacabababababcacba");
         ns.search();
 
         SundaySearch ss = new SundaySearch("abcac", "abcabcacabababababcacba");
@@ -46,8 +46,21 @@ public class Main {
         for (int s: bms.getOccurrences()){
             System.out.println(s);
         }
+        */
 
-        FileProcessing fp = new FileProcessing();
-        fp.saveRandomString();
+        SearchFactory searchFactory = new SearchFactory();
+        StringSearch stringSearch;
+
+        /* stringSearch = searchFactory.makeSearching("KMP","abcac", "abcabcacabababababcacba" );
+        stringSearch.search();
+        System.out.println("KMP:");
+        for (int s : stringSearch.getOccurrences()) {
+            System.out.println(s);
+        } */
+
+        FileProcessing fp = new FileProcessing("random_text.txt", 4, 4); //max alphabet size - 26 (ilosc liter w alfabecie)
+        //fp.generateText(10000, 20000);
+        fp.generatePattern(5);
+        fp.readFromFileToBuffer();
     }
 }

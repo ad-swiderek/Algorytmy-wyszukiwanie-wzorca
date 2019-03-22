@@ -22,7 +22,6 @@ public class BMSearch extends StringSearch {
     }
 
     public void init1() {
-        //init0();
         int m = pattern.length();
         int i = m;
         int j = m + 1;
