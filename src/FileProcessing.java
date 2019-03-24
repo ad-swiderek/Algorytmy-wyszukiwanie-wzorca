@@ -68,12 +68,12 @@ public class FileProcessing {
             System.out.println("BM: " + (stopTime - startTime));
             toFileWriting = Long.toString(stopTime - startTime);
             bw.write(toFileWriting + "\t");
+
             bw.write("\n");
             System.out.println();
 
-
-            //System.out.println(text2048);
             buffer = new char[2048];
+            //System.out.println(text2048);
         }
         bw.write("\n");
         br.close();
@@ -83,8 +83,8 @@ public class FileProcessing {
     public void countTextLength() throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(fileName));
         textLength = br.readLine().length();
-        //System.out.println(textLength);
         br.close();
+        //System.out.println(textLength);
     }
 
     public void generatePattern(int length) throws IOException {
